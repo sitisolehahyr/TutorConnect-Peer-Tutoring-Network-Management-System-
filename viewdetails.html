@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            background: linear-gradient(to right, #a18cd1, #fbc2eb, #8ec5fc);
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #6a0572;
+        }
+
+        .details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        a {
+            color: #6a0572;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #4a0572;
+        }
+
+        .goback-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #6a0572;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .goback-btn:hover {
+            background-color: #4a0572;
+        }
+    </style>
+    <title>TutorConnect</title>
+    <link rel="icon" href="logo1.png"></link>
+</head>
+<body>
+    <div class="container">
+        <h1>Material Details</h1>
+        <div class="details">
+            <p><strong>Title:</strong> Sample Material</p>
+            <p><strong>Description:</strong> This is a sample material for demonstration purposes.</p>
+            <p><strong>File:</strong> <a href="sample_material.pdf" target="_blank">View Material</a></p>
+            <p><strong>Uploaded By:</strong> John Doe</p>
+            <p><strong>Date Uploaded:</strong> February 5, 2024</p>
+        </div>
+    </div>
+
+    <button class="goback-btn" onclick="goBack()">Go Back</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

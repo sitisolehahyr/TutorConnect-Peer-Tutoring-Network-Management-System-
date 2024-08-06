@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Students</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            background: linear-gradient(to right, #a18cd1, #fbc2eb, #8ec5fc);
+            color: #333;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background: linear-gradient(to right, #6a0572, #ab83a1);
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #fff;
+            height: 70px;
+        }
+
+        .navbar img {
+            width: 150px;
+            height: auto;
+        }
+
+        .navbar a {
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            margin: 0 15px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #ab83a1;
+        }
+
+        .profile-button {
+            padding: 12px;
+            background-color: #4a0572;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-button:hover {
+            background-color: #2c003e;
+        }
+
+        .profile-button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .content {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        h2 {
+            color: #6a0572;
+            margin-bottom: 20px;
+        }
+
+        .student-section {
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .student-heading {
+            color: #6a0572;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .student-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .student-card {
+            background-color: #f0e1f7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            color: #4a0572;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <title>TutorConnect</title>
+    <link rel="icon" href="logo1.png"></link>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="logo1.png" alt="Logo">
+            <div>
+                <a href="hometutor.html">Home</a>
+                <a href="uploadmaterial.html">Upload Material</a>
+                <a href="viewfeedback.html">View Feedback</a>
+            </div>
+            <div class="profile-button">
+                <img src="profile-icon.png" alt="Profile Icon">
+                <a href="profiletutor.html">Profile</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>View Students Page</h2>
+
+            <div class="student-section">
+                <h2 class="student-heading">Students</h2>
+
+                <div class="student-container">
+                    <!-- Sample student cards (replace with dynamic content) -->
+                    <div class="student-card">
+                        <p>Wina Munada</p>
+                        <p>Email: winaMunada@student.com</p>
+                        <p>Phone: 0124683286</p>
+                        <p>Address: Block D, Female Hostel, Jalan Tun Razak, Alor Setar, Kedah</p>
+                    </div>
+                    <div class="student-card">
+                        <p>Anis Sofiana</p>
+                        <p>Email: anisSofiana@student.com</p>
+                        <p>Phone: 01938735865</p>
+                        <p>Address: Block B, Female Hostel, Jalan Tun Razak, Alor Setar, Kedah</p>
+                    </div>
+                    <div class="student-card">
+                        <p>Nurafiqah Sofia</p>
+                        <p>Email: Nurafiqah@student.com</p>
+                        <p>Phone: 0135407547</p>
+                        <p>Address: Jalan Tuk Kumbar, Alor Setar, Kedah</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

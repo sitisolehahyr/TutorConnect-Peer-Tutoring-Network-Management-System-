@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column; /* Allow flex container to take full height */
+            background: linear-gradient(to right, #a18cd1, #fbc2eb, #8ec5fc);
+            color: #333;
+        }
+
+        .container {
+            flex: 1; /* Allow container to take full height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background: linear-gradient(to right, #6a0572, #ab83a1);
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #fff;
+            height: 70px; /* Fixed size for the navbar */
+        }
+
+        .navbar img {
+            width: 150px; /* Fixed size for the logo */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .navbar a {
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            margin: 0 15px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #ab83a1;
+        }
+
+        .content {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        h2 {
+            color: #6a0572;
+            margin-bottom: 20px;
+        }
+
+        .tutor-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .tutor-card {
+            background-color: #f0e1f7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            width: 100%; /* Adjusted width */
+            max-width: 300px; /* Added max-width to prevent excessive stretching */
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tutor-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .tutor-card p {
+            margin-bottom: 10px;
+        }
+
+        .choose-tutor-button {
+            background-color: #6a0572;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .choose-tutor-button:hover {
+            background-color: #4a0572;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .popup-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .popup-button {
+            flex: 1;
+            background-color: #6a0572;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .popup-button:hover {
+            background-color: #4a0572;
+        }
+
+        .profile-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-button {
+            padding: 12px;
+            background-color: #4a0572;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-button:hover {
+            background-color: #2c003e;
+        }
+
+        .profile-button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        a {
+            color: #4a0572;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <title>TutorConnect</title>
+    <link rel="icon" href="logo1.png"></link>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="logo1.png" alt="Logo">
+            <div>
+                <a href="home.html">Home</a>
+                <a href="subject.html">Subjects</a>
+                <a href="feedback.html">Feedback</a>
+            </div>
+            <div class="profile-button">
+                <img src="profile-icon.png" alt="Profile Icon">
+                <a href="profile.html">Profile</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Find a Tutor</h2>
+
+            <div class="tutor-list">
+                <!-- Sample tutor cards (replace with dynamic content) -->
+                <div class="tutor-card">
+                    <img src="WANII.jpg" alt="Tutor 1">
+                    <p>NURSYAZWANI RASHID</p>
+                    <p>Subject: SOCIAL BUSINESS</p>
+                    <p>Email: waniir@tutor.com</p>
+                    <button class="choose-tutor-button" onclick="showPopup('Tutor 1')">Choose Tutor</button>
+                </div>
+                <div class="tutor-card">
+                    <img src="yunita.jpg" alt="Tutor 2">
+                    <p>SITI SOLEHAH YUNITA RAHMAWATI</p>
+                    <p>Subject: SOCIAL BUSINESS</p>
+                    <p>Email: yunita@tutor.com</p>
+                    <button class="choose-tutor-button" onclick="showPopup('Tutor 2')">Choose Tutor</button>
+                </div>
+                <div class="tutor-card">
+                    <img src="tutorr1.jpeg" alt="Tutor 3">
+                    <p>MOHD SYAQIB</p>
+                    <p>Subject: SOCIAL BUSINESS</p>
+                    <p>Email: syaqib@tutor.com</p>
+                    <button class="choose-tutor-button" onclick="showPopup('Tutor 3')">Choose Tutor</button>
+                </div>
+            </div>
+
+            <div class="logout-section">
+                <center><a href="welcome.html">Logout</a></center>
+            </div>
+        </div>
+
+        <!-- Popup -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <p>Tutor selected: <span id="selectedTutor"></span></p>
+                <div class="popup-buttons">
+                    <button class="popup-button" onclick="redirectToAppointment()">Make Appointment</button>
+                    <button class="popup-button" onclick="redirectToMaterials()">View Materials</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPopup(tutorName) {
+            console.log('Showing popup for tutor:', tutorName);
+            document.getElementById('selectedTutor').innerText = tutorName;
+            document.getElementById('popup').style.display = 'flex';
+        }
+    
+        function redirectToAppointment() {
+            console.log('Redirecting to appointment page');
+            // Redirect to the appointment page or adjust as needed
+            window.location.href = 'appoinment.html';
+        }
+    
+        function redirectToMaterials() {
+            console.log('Redirecting to materials page');
+            // Redirect to the materials page or adjust as needed
+            window.location.href = 'material.html';
+        }
+    </script>
+    
+</body>
+</html>
