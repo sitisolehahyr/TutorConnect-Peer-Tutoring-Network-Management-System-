@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Feedback Hub | TutorConnect</title>
+    <link rel="icon" href="../assets/images/logo1.png" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <nav class="navbar" aria-label="Primary">
+                <a class="navbar__brand" href="../index.html">
+                    <img src="../assets/images/logo1.png" alt="TutorConnect" width="44" height="44" />
+                    <span>TutorConnect</span>
+                </a>
+                <div class="navbar__links">
+                    <a href="subjects.html">Subjects</a>
+                    <a href="tutors.html">Tutors</a>
+                    <a href="appointments.html">Appointments</a>
+                    <a href="resources.html">Resources</a>
+                    <a href="feedback.html" aria-current="page">Feedback</a>
+                </div>
+                <div class="navbar__actions">
+                    <a class="btn btn--ghost" href="login.html">Dashboard</a>
+                    <a class="btn btn--primary" href="view-feedback.html">View reports</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="site-main">
+            <section class="section">
+                <div class="section__header">
+                    <span class="section__eyebrow">Continuous improvement</span>
+                    <h2 class="section__title">Tell us how the session went</h2>
+                    <p class="section__subtitle">
+                        Your reflections help tutors refine their approach and allow coordinators to celebrate outstanding mentorship moments.
+                    </p>
+                </div>
+
+                <div class="form-card">
+                    <form class="form-grid" action="#" method="post">
+                        <div class="form-grid">
+                            <label for="sessionId">Session ID</label>
+                            <input type="text" id="sessionId" name="session_id" placeholder="APT-2042" required />
+                        </div>
+                        <div class="form-grid">
+                            <label for="rating">Overall rating</label>
+                            <select id="rating" name="rating" required>
+                                <option value="">Select rating</option>
+                                <option value="5">Excellent</option>
+                                <option value="4">Great</option>
+                                <option value="3">Good</option>
+                                <option value="2">Needs improvement</option>
+                                <option value="1">Unsatisfactory</option>
+                            </select>
+                        </div>
+                        <div class="form-grid">
+                            <label for="impact">What helped you most?</label>
+                            <textarea id="impact" name="impact" placeholder="Share a highlight from the session"></textarea>
+                        </div>
+                        <div class="form-grid">
+                            <label for="improve">What can we do better?</label>
+                            <textarea id="improve" name="improve" placeholder="We value ideas for improving our learning spaces"></textarea>
+                        </div>
+                        <div class="form-footer">
+                            <button class="btn btn--primary" type="submit">Submit feedback</button>
+                            <p>Want to browse recent reflections? <a href="view-feedback.html">View the feedback board</a>.</p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="section surface">
+                <h3>Feedback themes we track</h3>
+                <div class="tag-set">
+                    <span class="tag">Concept clarity</span>
+                    <span class="tag">Confidence boost</span>
+                    <span class="tag">Resource quality</span>
+                    <span class="tag">Session pacing</span>
+                    <span class="tag">Tutor responsiveness</span>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="site-footer__inner">
+                <span>Feedback is anonymously shared with tutors unless you opt in.</span>
+                <div class="navbar__links">
+                    <a href="view-feedback.html">Feedback board</a>
+                    <a href="tutor-dashboard.html">Tutor dashboard</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create your TutorConnect account</title>
+    <link rel="icon" href="../assets/images/logo1.png" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <nav class="navbar" aria-label="Primary">
+                <a class="navbar__brand" href="../index.html">
+                    <img src="../assets/images/logo1.png" alt="TutorConnect" width="44" height="44" />
+                    <span>TutorConnect</span>
+                </a>
+                <div class="navbar__links">
+                    <a href="subjects.html">Subjects</a>
+                    <a href="tutors.html">Tutors</a>
+                    <a href="appointments.html">Appointments</a>
+                    <a href="resources.html">Resources</a>
+                </div>
+                <div class="navbar__actions">
+                    <a class="btn btn--ghost" href="login.html">Already have an account?</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="site-main">
+            <section class="section">
+                <div class="form-card" role="form">
+                    <div>
+                        <span class="section__eyebrow">Join the community</span>
+                        <h2>Create your student account</h2>
+                        <p class="section__subtitle">
+                            Tell us a little about yourself so we can tailor tutoring matches to your goals.
+                        </p>
+                    </div>
+                    <form id="signupForm" class="form-grid form-grid--two-column" action="../api/register_student.php" method="post" novalidate>
+                        <div>
+                            <label for="fullName">Full name</label>
+                            <input type="text" id="fullName" name="full_name" placeholder="Alex Morgan" required />
+                        </div>
+                        <div>
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" placeholder="alexm" required />
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="alex@example.edu" required />
+                        </div>
+                        <div>
+                            <label for="phone">Phone number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="6012 345 6789" required />
+                        </div>
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Create a strong password" required minlength="8" />
+                        </div>
+                        <div>
+                            <label for="confirmPassword">Confirm password</label>
+                            <input type="password" id="confirmPassword" name="confirm_password" placeholder="Repeat your password" required minlength="8" />
+                        </div>
+                        <div class="form-grid" style="grid-column: 1 / -1;">
+                            <label for="address">Study location</label>
+                            <input type="text" id="address" name="address" placeholder="Campus, city" required />
+                        </div>
+                        <div class="form-grid" style="grid-column: 1 / -1;">
+                            <label for="interests">Subjects of interest</label>
+                            <textarea id="interests" name="interests" placeholder="Share the subjects or topics where you’d like support"></textarea>
+                        </div>
+                        <div class="form-footer" style="grid-column: 1 / -1;">
+                            <button class="btn btn--primary" type="submit">Create account</button>
+                            <p class="status-message" id="signupStatus" role="status" aria-live="polite"></p>
+                            <p>Are you a tutor? <a href="tutor-signup.html">Join the tutor programme</a>.</p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="site-footer__inner">
+                <span>By joining you agree to our peer code of conduct.</span>
+                <div class="navbar__links">
+                    <a href="../index.html#features">Explore the platform</a>
+                    <a href="tutors.html">Meet the tutors</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+            const form = document.getElementById('signupForm');
+            const status = document.getElementById('signupStatus');
+            if (!form || !status) return;
+
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                const password = document.getElementById('password').value;
+                const confirm = document.getElementById('confirmPassword').value;
+
+                if (password !== confirm) {
+                    status.className = 'status-message is-error';
+                    status.textContent = 'Passwords do not match. Please check again.';
+                    return;
+                }
+
+                status.className = 'status-message';
+                status.textContent = 'Creating your account…';
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        status.className = 'status-message is-success';
+                        status.textContent = 'Account created successfully! You can now sign in.';
+                        form.reset();
+                    } else {
+                        status.className = 'status-message is-error';
+                        status.textContent = result.message || 'We could not create your account. Please try again.';
+                    }
+                } catch (error) {
+                    console.error(error);
+                    status.className = 'status-message is-error';
+                    status.textContent = 'Something went wrong. Please try again.';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Upload Study Materials | TutorConnect</title>
+    <link rel="icon" href="../assets/images/logo1.png" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <nav class="navbar" aria-label="Primary">
+                <a class="navbar__brand" href="../index.html">
+                    <img src="../assets/images/logo1.png" alt="TutorConnect" width="44" height="44" />
+                    <span>TutorConnect</span>
+                </a>
+                <div class="navbar__links">
+                    <a href="resources.html">Resources</a>
+                    <a href="tutors.html">Tutors</a>
+                    <a href="appointments.html">Appointments</a>
+                    <a href="feedback.html">Feedback</a>
+                </div>
+                <div class="navbar__actions">
+                    <a class="btn btn--ghost" href="resources.html">Back to library</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="site-main">
+            <section class="section">
+                <div class="section__header">
+                    <span class="section__eyebrow">Resource contribution</span>
+                    <h2 class="section__title">Share learning materials with the community</h2>
+                    <p class="section__subtitle">Upload files, add context, and make it easy for peers to benefit.</p>
+                </div>
+
+                <div class="form-card">
+                    <form class="form-grid" action="#" method="post" enctype="multipart/form-data">
+                        <div class="form-grid">
+                            <label for="resourceTitle">Title</label>
+                            <input type="text" id="resourceTitle" name="title" placeholder="e.g., Calculus Practice Set" required />
+                        </div>
+                        <div class="form-grid">
+                            <label for="resourceSubject">Subject</label>
+                            <input type="text" id="resourceSubject" name="subject" placeholder="Subject area" required />
+                        </div>
+                        <div class="form-grid">
+                            <label for="resourceType">Resource type</label>
+                            <select id="resourceType" name="type" required>
+                                <option value="">Select type</option>
+                                <option value="Notes">Notes</option>
+                                <option value="Presentation">Presentation</option>
+                                <option value="Worksheet">Worksheet</option>
+                                <option value="Recording">Recording</option>
+                            </select>
+                        </div>
+                        <div class="form-grid">
+                            <label for="resourceFile">Upload file</label>
+                            <input type="file" id="resourceFile" name="file" required />
+                        </div>
+                        <div class="form-grid">
+                            <label for="resourceDescription">Description</label>
+                            <textarea id="resourceDescription" name="description" placeholder="Provide context or suggested usage"></textarea>
+                        </div>
+                        <div class="form-footer">
+                            <button class="btn btn--primary" type="submit">Upload resource</button>
+                            <p>Tip: remove personal data before sharing files.</p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="site-footer__inner">
+                <span>Resources are reviewed before publishing.</span>
+                <div class="navbar__links">
+                    <a href="resources.html">Browse library</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

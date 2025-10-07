@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book an Appointment | TutorConnect</title>
+    <link rel="icon" href="../assets/images/logo1.png" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <nav class="navbar" aria-label="Primary">
+                <a class="navbar__brand" href="../index.html">
+                    <img src="../assets/images/logo1.png" alt="TutorConnect" width="44" height="44" />
+                    <span>TutorConnect</span>
+                </a>
+                <div class="navbar__links">
+                    <a href="subjects.html">Subjects</a>
+                    <a href="tutors.html">Tutors</a>
+                    <a href="appointments.html" aria-current="page">Appointments</a>
+                    <a href="resources.html">Resources</a>
+                    <a href="feedback.html">Feedback</a>
+                </div>
+                <div class="navbar__actions">
+                    <a class="btn btn--ghost" href="login.html">Manage bookings</a>
+                    <a class="btn btn--primary" href="../index.html">Home</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="site-main">
+            <section class="section">
+                <div class="section__header">
+                    <span class="section__eyebrow">Session booking</span>
+                    <h2 class="section__title">Tell us the support you need and we’ll confirm your session</h2>
+                    <p class="section__subtitle">
+                        Fill in the details below and a confirmation email will be sent once your tutor approves the request.
+                    </p>
+                </div>
+
+                <div class="form-card">
+                    <form id="appointmentForm" class="form-grid form-grid--two-column">
+                        <div>
+                            <label for="studentId">Student ID</label>
+                            <input type="text" id="studentId" name="student_id" placeholder="AIU21102378" required />
+                        </div>
+                        <div>
+                            <label for="tutorId">Tutor ID</label>
+                            <input type="text" id="tutorId" name="tutor_id" placeholder="TUT005" required />
+                        </div>
+                        <div>
+                            <label for="subjectId">Subject ID</label>
+                            <input type="text" id="subjectId" name="subject_id" placeholder="SUB010" required />
+                        </div>
+                        <div>
+                            <label for="date">Preferred date</label>
+                            <input type="date" id="date" name="date" required />
+                        </div>
+                        <div>
+                            <label for="time">Preferred time</label>
+                            <input type="time" id="time" name="time" required />
+                        </div>
+                        <div class="form-grid" style="grid-column: 1 / -1;">
+                            <label for="additionalNotes">Additional notes</label>
+                            <textarea id="additionalNotes" name="message" placeholder="Tell us what you’d like to focus on"></textarea>
+                        </div>
+                        <div class="form-footer" style="grid-column: 1 / -1;">
+                            <button class="btn btn--primary" type="submit">Submit booking</button>
+                            <p class="status-message" id="statusMessage" role="status" aria-live="polite"></p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="section surface">
+                <div class="two-column">
+                    <div>
+                        <h3>Booking tips</h3>
+                        <ul>
+                            <li>Share the syllabus topics or questions you want to cover.</li>
+                            <li>Suggest multiple time slots for faster confirmation.</li>
+                            <li>Upload relevant files in the resource library before the session.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Need to reschedule?</h3>
+                        <p>Email <a href="mailto:appointments@tutorconnect.app">appointments@tutorconnect.app</a> at least 12 hours before your slot.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="site-footer__inner">
+                <span>Keep track of every session from your personalised dashboard.</span>
+                <div class="navbar__links">
+                    <a href="login.html">Student login</a>
+                    <a href="tutor-dashboard.html">Tutor dashboard</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const form = document.getElementById('appointmentForm');
+        const statusMessage = document.getElementById('statusMessage');
+
+        async function submitAppointment(event) {
+            event.preventDefault();
+            statusMessage.className = 'status-message';
+            statusMessage.textContent = 'Submitting your request…';
+
+            const formData = new FormData(form);
+            try {
+                const response = await fetch('../api/create_appointment.php', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                if (data.success) {
+                    statusMessage.className = 'status-message is-success';
+                    statusMessage.textContent = 'Appointment booked successfully! Check your email for confirmation.';
+                    form.reset();
+                } else {
+                    statusMessage.className = 'status-message is-error';
+                    statusMessage.textContent = data.message || 'Could not book the appointment. Please try again.';
+                }
+            } catch (error) {
+                console.error(error);
+                statusMessage.className = 'status-message is-error';
+                statusMessage.textContent = 'Something went wrong. Please try again shortly.';
+            }
+        }
+
+        if (form) {
+            form.addEventListener('submit', submitAppointment);
+        }
+    </script>
+</body>
+</html>

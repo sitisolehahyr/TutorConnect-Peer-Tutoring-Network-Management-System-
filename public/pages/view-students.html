@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Directory | TutorConnect</title>
+    <link rel="icon" href="../assets/images/logo1.png" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <nav class="navbar" aria-label="Primary">
+                <a class="navbar__brand" href="../index.html">
+                    <img src="../assets/images/logo1.png" alt="TutorConnect" width="44" height="44" />
+                    <span>TutorConnect</span>
+                </a>
+                <div class="navbar__links">
+                    <a href="view-students.html" aria-current="page">Students</a>
+                    <a href="view-feedback.html">Feedback</a>
+                    <a href="appointments.html">Appointments</a>
+                </div>
+                <div class="navbar__actions">
+                    <a class="btn btn--ghost" href="login.html">Admin login</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="site-main">
+            <section class="section surface">
+                <div class="section__header">
+                    <span class="section__eyebrow">Student overview</span>
+                    <h2 class="section__title">Active participants this semester</h2>
+                    <p class="section__subtitle">Filter by faculty, session activity, or engagement score to keep tabs on progress.</p>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Programme</th>
+                            <th>Sessions</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AIU21102378</td>
+                            <td>Solehah Yunita</td>
+                            <td>Business Administration</td>
+                            <td>24</td>
+                            <td><span class="badge">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>AIU21102345</td>
+                            <td>Rahul Das</td>
+                            <td>Software Engineering</td>
+                            <td>18</td>
+                            <td><span class="badge">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>AIU21102211</td>
+                            <td>Farah Nordin</td>
+                            <td>Applied Mathematics</td>
+                            <td>12</td>
+                            <td><span class="badge">New</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="site-footer__inner">
+                <span>Download full reports from the admin dashboard.</span>
+                <div class="navbar__links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
