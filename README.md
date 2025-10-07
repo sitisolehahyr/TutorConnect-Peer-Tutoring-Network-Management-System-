@@ -38,6 +38,13 @@ tools/
 - **Cleaner assets** – images renamed and organised under `public/assets/images` for predictable usage.
 - **Legacy archive** – original static mock-ups live under `public/pages/legacy` so earlier work is still discoverable.
 
+## UI overview
+
+> Drop fresh screenshots in `public/assets/images/screenshots/` and reuse the paths below.
+
+![TutorConnect desktop UI](public/assets/images/screenshots/overview-desktop.png)
+![TutorConnect mobile UI](public/assets/images/screenshots/overview-mobile.png)
+
 ## Quick start
 
 > Requirements: PHP 8+, MySQL (or MariaDB), and your favourite browser.
