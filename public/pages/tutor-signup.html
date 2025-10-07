@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Become a Tutor | TutorConnect</title>
+    <link rel="icon" href="../assets/images/logo1.png" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <nav class="navbar" aria-label="Primary">
+                <a class="navbar__brand" href="../index.html">
+                    <img src="../assets/images/logo1.png" alt="TutorConnect" width="44" height="44" />
+                    <span>TutorConnect</span>
+                </a>
+                <div class="navbar__links">
+                    <a href="subjects.html">Subjects</a>
+                    <a href="tutors.html">Tutors</a>
+                    <a href="appointments.html">Appointments</a>
+                    <a href="resources.html">Resources</a>
+                </div>
+                <div class="navbar__actions">
+                    <a class="btn btn--ghost" href="login.html">Log in</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="site-main">
+            <section class="section">
+                <div class="section__header">
+                    <span class="section__eyebrow">Tutor application</span>
+                    <h2 class="section__title">Share your expertise with peers</h2>
+                    <p class="section__subtitle">Complete the quick application below and our coordinator will get in touch with next steps.</p>
+                </div>
+
+                <div class="form-card">
+                    <form class="form-grid form-grid--two-column" action="#" method="post">
+                        <div>
+                            <label for="tutorFullName">Full name</label>
+                            <input type="text" id="tutorFullName" name="full_name" placeholder="Your name" required />
+                        </div>
+                        <div>
+                            <label for="tutorEmailApply">Email</label>
+                            <input type="email" id="tutorEmailApply" name="email" placeholder="you@example.edu" required />
+                        </div>
+                        <div>
+                            <label for="tutorProgramme">Programme</label>
+                            <input type="text" id="tutorProgramme" name="programme" placeholder="Your degree programme" required />
+                        </div>
+                        <div>
+                            <label for="tutorExperience">Tutoring experience</label>
+                            <input type="text" id="tutorExperience" name="experience" placeholder="Years of experience" />
+                        </div>
+                        <div class="form-grid" style="grid-column: 1 / -1;">
+                            <label for="tutorSubjects">Subjects you can teach</label>
+                            <textarea id="tutorSubjects" name="subjects" placeholder="List subject areas you’re confident in"></textarea>
+                        </div>
+                        <div class="form-grid" style="grid-column: 1 / -1;">
+                            <label for="tutorMotivation">Why do you want to tutor?</label>
+                            <textarea id="tutorMotivation" name="motivation"></textarea>
+                        </div>
+                        <div class="form-footer" style="grid-column: 1 / -1;">
+                            <button class="btn btn--primary" type="submit">Submit application</button>
+                            <p>We respond within 5 working days.</p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="site-footer__inner">
+                <span>Questions? Email <a href="mailto:tutors@tutorconnect.app">tutors@tutorconnect.app</a>.</span>
+                <div class="navbar__links">
+                    <a href="tutors.html">Meet active tutors</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

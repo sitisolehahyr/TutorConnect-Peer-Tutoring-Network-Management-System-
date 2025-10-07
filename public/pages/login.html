@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign in | TutorConnect</title>
+    <link rel="icon" href="../assets/images/logo1.png" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <nav class="navbar" aria-label="Primary">
+                <a class="navbar__brand" href="../index.html">
+                    <img src="../assets/images/logo1.png" alt="TutorConnect" width="44" height="44" />
+                    <span>TutorConnect</span>
+                </a>
+                <div class="navbar__links">
+                    <a href="subjects.html">Subjects</a>
+                    <a href="tutors.html">Tutors</a>
+                    <a href="appointments.html">Appointments</a>
+                    <a href="resources.html">Resources</a>
+                    <a href="feedback.html">Feedback</a>
+                </div>
+                <div class="navbar__actions">
+                    <a class="btn btn--ghost" href="signup.html">Create account</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="site-main">
+            <section class="section">
+                <div class="form-card" role="form">
+                    <div>
+                        <span class="section__eyebrow">Welcome back</span>
+                        <h2>Sign in to continue</h2>
+                        <p class="section__subtitle">Pick up right where you left off with your tutoring sessions.</p>
+                    </div>
+                    <form action="../api/login.php" method="post" class="form-grid" novalidate>
+                        <div class="form-grid">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" placeholder="Enter your username" required />
+                        </div>
+                        <div class="form-grid">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="••••••••" required />
+                        </div>
+                        <button class="btn btn--primary" type="submit">Sign in</button>
+                    </form>
+                    <div class="form-footer">
+                        <p class="status-message" id="loginStatus" role="status" aria-live="polite"></p>
+                        <p>New to TutorConnect? <a href="signup.html">Create your student account</a>.</p>
+                        <p>Want to share your expertise? <a href="tutor-signup.html">Apply as a tutor</a>.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="site-footer__inner">
+                <span>Need help? <a href="mailto:support@tutorconnect.app">support@tutorconnect.app</a></span>
+                <div class="navbar__links">
+                    <a href="view-feedback.html">Student feedback</a>
+                    <a href="view-students.html">Admin view</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        (function () {
+            const form = document.querySelector('form[action="../api/login.php"]');
+            const status = document.getElementById('loginStatus');
+
+            if (!form || !status) {
+                return;
+            }
+
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                status.className = 'status-message';
+                status.textContent = 'Checking your credentials…';
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        status.className = 'status-message is-success';
+                        status.textContent = 'Welcome back! Redirecting to your dashboard…';
+                        setTimeout(() => {
+                            window.location.href = 'student-profile.html';
+                        }, 1200);
+                    } else {
+                        status.className = 'status-message is-error';
+                        status.textContent = result.message || 'Unable to sign in with those details.';
+                    }
+                } catch (error) {
+                    console.error(error);
+                    status.className = 'status-message is-error';
+                    status.textContent = 'Something went wrong. Please try again.';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

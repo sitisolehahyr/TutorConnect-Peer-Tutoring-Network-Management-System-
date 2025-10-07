@@ -1,71 +1,103 @@
-# TutorConnect: Peer Tutoring Network Management System
+# TutorConnect · Peer Tutoring Network
 
-## 1. Introduction
+TutorConnect is a portfolio-ready concept for managing a peer-to-peer tutoring programme. The refreshed UI showcases a modern student experience: explore subjects, meet tutors, book sessions, leave feedback, and grow a shared resource hub—all inside a clean, consistent design system.
 
-### 1.1. Description of the Organization
-**TutorConnect** is a cutting-edge and inclusive web-based platform designed to promote collaborative learning environments within academic communities. The organization's primary goal is to bridge the gap between students seeking academic assistance and their peers who have experience in a variety of subjects. TutorConnect seeks to build a dynamic environment where information is shared efficiently, encouraging students to thrive in their educational endeavors by leveraging the potential of peer-to-peer tutoring.
+## What’s inside
 
-TutorConnect, as an integrated solution, provides a user-friendly interface that enables easy communication and collaboration between students and tutors. Through this platform, students can connect with peer tutors, plan personalized tutoring sessions, and engage in real-time discussions to clarify issues. TutorConnect fosters a supportive environment where students can enhance their academic knowledge while also developing valuable communication and leadership skills. The platform has the potential to transform the way students study and support one another, creating a culture of academic achievement and collaboration within the university or academic community.
+```
+public/
+├── index.html                # Landing page and product story
+├── assets/
+│   ├── css/main.css          # Shared design system (glassmorphism-inspired)
+│   └── images/…              # Optimised image assets
+├── api/                      # PHP endpoints for demo data flows
+│   ├── database.php          # Connection helper + JSON responder
+│   ├── login.php             # Student authentication endpoint
+│   ├── register_student.php  # Student onboarding endpoint
+│   └── create_appointment.php# Appointment booking endpoint
+├── pages/                    # Feature screens
+│   ├── appointments.html
+│   ├── feedback.html
+│   ├── resources.html
+│   ├── student-profile.html
+│   ├── tutor-dashboard.html
+│   ├── tutors.html
+│   ├── …
+│   └── legacy/               # Original concept pages kept for reference
+└── scripts/                  # Reserved for future front-end utilities
 
-### 1.2. Description of the Current System and Its Problems
-The current database system allows students and tutors to connect for tutoring in educational institutions, but it still faces several challenges:
+tools/
+└── seed/seed_student_example.php  # Simple data seeding helper
+```
 
-- **Appointment Scheduling:** Scheduling tutoring sessions is messy, making it difficult for students and tutors to find suitable times without accidentally booking the same slot, causing confusion and frustration.
-- **Communication Challenges:** Communication between students and tutors is scattered, making it difficult to organize sessions effectively. Timely updates or changes often don’t reach everyone on time, impacting the reliability of the system.
-- **Resource Sharing Limitations:** Accessing study materials is challenging due to the lack of a central platform for sharing resources, complicating collaborative learning opportunities for both students and tutors.
+## Highlights
 
-### 1.3. Motivation
-Our motivation is to revolutionize peer tutoring, making it more accessible for everyone involved. TutorConnect aims to create a user-friendly space that fosters collaboration and enriches the overall learning experience. The platform is designed to simplify appointment scheduling, improve communication, and enhance resource sharing between students and tutors.
+- **Cohesive visual language** – gradient accents, glass surfaces, and responsive layouts shared through `assets/css/main.css`.
+- **Streamlined flows** – new appointment booking, login, and signup screens feature inline validation and friendly feedback states.
+- **Modular architecture** – front-end lives in `public/pages`, while PHP endpoints sit in `public/api` with reusable helpers.
+- **Cleaner assets** – images renamed and organised under `public/assets/images` for predictable usage.
+- **Legacy archive** – original static mock-ups live under `public/pages/legacy` so earlier work is still discoverable.
 
-### 1.4. How will the System Benefit the Organization?
-The main benefit of the TutorConnect system is to revolutionize the peer tutoring experience within the organization. By providing an advanced platform for efficient tutor-student matching, streamlined session scheduling, and robust feedback mechanisms, the organization can elevate the quality of its tutoring program. Key benefits include:
+## Quick start
 
-- **Enhanced Tutor-Student Matching:** Efficient matching based on subject expertise and availability ensures a tailored and effective learning experience.
-- **Streamlined Session Scheduling:** Simplifies the scheduling process, eliminating manual coordination efforts and reducing scheduling conflicts.
-- **Robust Feedback System:** Continuous improvement of tutoring services through enhanced feedback and ratings.
-- **Centralized User Management:** Ensures data accuracy, security, and streamlined access control.
-- **Data-Driven Insights:** Valuable insights through reports summarizing successful matches, scheduled sessions, and tutor ratings.
+> Requirements: PHP 8+, MySQL (or MariaDB), and your favourite browser.
 
-## 2. Module Overview
-
-### 2.1. User Registration and Management Module
-This module includes three principal entities: **Student, Tutor,** and **Course.** Each entity is meticulously structured with key attributes, ensuring data normalization to at least the Third Normal Form. This module also features:
-
-- **Forms:** User Registration, Profile Editing, and Profile Display forms.
-- **Reporting:** A comprehensive tabular report presenting student and tutor details, along with enrolled courses.
-
-### 2.2. Tutor-Student Matching and Session Scheduling Module
-This module is designed to facilitate meaningful interactions between students and peer tutors, with key features including:
-
-- **Entities:** Student, Tutor, Session, Matching Result, Appointment, Time Slot, and Subject.
-- **Forms:** Empower users to navigate the appointment scheduling process effortlessly.
-- **Reporting:** A tabular report showcasing upcoming appointments, ensuring effective session management.
-
-### 2.3. Feedback and Rating System Module
-This module fosters constructive collaboration and a comprehensive evaluation system:
-
-- **Entities:** Feedback and Rating.
-- **Forms:** Users can provide and receive feedback on academic interactions and rate tutoring competencies.
-- **Reporting:** A detailed overview of users' strengths and areas for growth.
-
-### 2.4. Resource and Material Sharing Module
-This module promotes collaborative learning through seamless resource sharing:
-
-- **Entities:** User, Material, Subject, and Discussion.
-- **Features:** Tutors can upload materials, and students can engage in discussions related to shared resources.
-- **Business Rules:** Ensures integrity, security, and respectful discourse within the platform.
-
-## 3. How to Use
-To get started with the TutorConnect platform:
-
-1. Clone the repository:
+1. **Clone the repository**
    ```bash
    git clone https://github.com/sitisolehahyr/TutorConnect.git
-2. Follow the setup instructions provided in the INSTALL.md file.
-3. Explore the modules as per your academic needs and contribute to the community.
+   cd TutorConnect
+   ```
+2. **Configure the database connection**
+   Create a `.env` file or export environment variables before running the PHP server:
+   ```bash
+   export DB_HOST=localhost
+   export DB_USERNAME=root
+   export DB_PASSWORD=secret
+   export DB_DATABASE=tutorconnect_db
+   ```
+3. **Seed sample data (optional)**
+   ```bash
+   php tools/seed/seed_student_example.php
+   ```
+4. **Serve the experience**
+   ```bash
+   php -S 127.0.0.1:8000 -t public
+   ```
+   Visit <http://127.0.0.1:8000> to explore the interface. API endpoints are available under `/api/*`.
 
-## 4. Contributing
-We welcome contributions to enhance the TutorConnect platform. Please read our CONTRIBUTING.md for guidelines on how to contribute.
+## Demo endpoints
 
-## 5. License
-This project is licensed under the MIT License. See the LICENSE.md file for details.
+| Endpoint | Method | Purpose |
+| --- | --- | --- |
+| `/api/register_student.php` | `POST` | Registers a new student profile with hashed credentials. |
+| `/api/login.php` | `POST` | Validates username/password using `password_verify`. |
+| `/api/create_appointment.php` | `POST` | Books a tutoring session and returns a confirmation payload. |
+
+Each endpoint expects URL-encoded form data and responds with JSON. The helper in `database.php` reads connection details from environment variables and makes it easy to share consistent responses via `respond_json()`.
+
+## Key screens
+
+- `index.html` – hero landing page with product story, features, testimonials, and CTAs.
+- `pages/subjects.html` – curated subject catalogue with quick actions.
+- `pages/tutors.html` – tutor directory with refined cards and call-to-actions.
+- `pages/appointments.html` – modern booking form with inline status messaging.
+- `pages/resources.html` – resource hub featuring downloadable study kits.
+- `pages/feedback.html` – feedback submission flow and themes overview.
+- `pages/student-profile.html` / `pages/tutor-dashboard.html` – portfolio-friendly dashboards for each persona.
+
+## Design & development notes
+
+- **Styling:** Centralised in `assets/css/main.css`, featuring CSS variables, component-driven classes, and responsive breakpoints.
+- **JavaScript:** Minimal, page-scoped scripts for login, signup, and appointment flows using `fetch` + optimistic UI updates.
+- **Accessibility:** Landmarks (`header`, `main`, `footer`), descriptive alt text, and live regions for status updates.
+- **Legacy mock-ups:** Unrefined originals are preserved in `public/pages/legacy`—useful if you want to show the before/after story.
+
+## Roadmap ideas
+
+1. Add a lightweight build step (Vite or Parcel) to bundle shared JS modules.
+2. Replace PHP endpoints with a Laravel or Express API for production deployments.
+3. Persist feedback and resources via dedicated tables, adding pagination and search.
+
+## License
+
+This project is released under the MIT License. See [LICENSE](LICENSE) for details.

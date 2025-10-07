@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Edit Tutor Profile | TutorConnect</title>
+    <link rel="icon" href="../assets/images/logo1.png" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <nav class="navbar" aria-label="Primary">
+                <a class="navbar__brand" href="../index.html">
+                    <img src="../assets/images/logo1.png" alt="TutorConnect" width="44" height="44" />
+                    <span>TutorConnect</span>
+                </a>
+                <div class="navbar__links">
+                    <a href="tutor-profile.html">Profile</a>
+                    <a href="tutor-dashboard.html">Dashboard</a>
+                    <a href="appointments.html">Appointments</a>
+                    <a href="resources.html">Resources</a>
+                </div>
+                <div class="navbar__actions">
+                    <a class="btn btn--ghost" href="tutor-profile.html">Cancel</a>
+                    <button class="btn btn--primary" form="editTutorForm" type="submit">Save changes</button>
+                </div>
+            </nav>
+        </header>
+
+        <main class="site-main">
+            <section class="section">
+                <div class="section__header">
+                    <span class="section__eyebrow">Tutor profile</span>
+                    <h2 class="section__title">Update your availability and highlights</h2>
+                    <p class="section__subtitle">Keep students informed about your focus areas and current schedule.</p>
+                </div>
+
+                <div class="form-card">
+                    <form id="editTutorForm" class="form-grid form-grid--two-column" action="#" method="post">
+                        <div>
+                            <label for="tutorName">Full name</label>
+                            <input type="text" id="tutorName" name="tutor_name" value="Daniel Cho" required />
+                        </div>
+                        <div>
+                            <label for="tutorEmail">Email</label>
+                            <input type="email" id="tutorEmail" name="tutor_email" value="daniel.cho@university.edu" required />
+                        </div>
+                        <div>
+                            <label for="tutorAvailability">Weekly availability</label>
+                            <textarea id="tutorAvailability" name="tutor_availability">Mon, Wed, Fri · 7:00 – 10:00 PM; Sat project clinic upon request.</textarea>
+                        </div>
+                        <div>
+                            <label for="tutorFocus">Focus areas</label>
+                            <textarea id="tutorFocus" name="tutor_focus">Python for beginners, UI/UX prototyping, portfolio reviews.</textarea>
+                        </div>
+                        <div class="form-grid" style="grid-column: 1 / -1;">
+                            <label for="tutorBio">Tutor bio</label>
+                            <textarea id="tutorBio" name="tutor_bio">I help students build strong technical foundations and translate their ideas into tangible products.</textarea>
+                        </div>
+                        <div class="form-footer" style="grid-column: 1 / -1;">
+                            <p>Profile updates go live immediately on the tutor directory.</p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="site-footer__inner">
+                <span>Need support? Contact <a href="mailto:tutors@tutorconnect.app">tutors@tutorconnect.app</a>.</span>
+                <div class="navbar__links">
+                    <a href="tutor-dashboard.html">Dashboard</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
